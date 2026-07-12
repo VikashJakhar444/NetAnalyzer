@@ -101,14 +101,33 @@ class AboutPage(ctk.CTkFrame):
             anchor="w",
         ).grid(row=8, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 6))
 
-        links = (
-            "GitHub       — <your-repo-url>\n"
-            "License       — MIT\n"
-            "Support       — <your-email>"
-        )
+        # Clickable links
+        link_frame = ctk.CTkFrame(panel, fg_color="transparent")
+        link_frame.grid(row=9, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, Theme.PAD_CARD))
+
+        def _link_btn(parent, label, url, row):
+            row_frame = ctk.CTkFrame(parent, fg_color="transparent")
+            row_frame.grid(row=row, column=0, sticky="w", pady=2)
+            ctk.CTkLabel(
+                row_frame, text=label,
+                font=Theme.font(11),
+                text_color=Theme.TEXT_MUTED,
+                width=90, anchor="w",
+            ).pack(side="left")
+            btn = ctk.CTkLabel(
+                row_frame, text=url,
+                font=Theme.font(11),
+                text_color=Theme.ACCENT,
+                cursor="hand2", anchor="w",
+            )
+            btn.pack(side="left")
+            btn.bind("<Button-1>", lambda e: __import__("webbrowser").open(url if url.startswith("http") else f"https://{url}"))
+            btn.bind("<Enter>", lambda e: btn.configure(text_color=Theme.ACCENT_HOVER))
+            btn.bind("<Leave>", lambda e: btn.configure(text_color=Theme.ACCENT))
+
+        _link_btn(link_frame, "GitHub   — ", "github.com/VikashJakhar444/NetAnalyzer", 0)
+        _link_btn(link_frame, "LinkedIn — ", "linkedin.com/in/vikash-jakhar-1a417b361", 1)
         ctk.CTkLabel(
-            panel, text=links,
-            font=Theme.font(11),
-            text_color=Theme.TEXT_MUTED,
-            justify="left", anchor="w",
-        ).grid(row=9, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, Theme.PAD_CARD))
+            link_frame, text="License  —  MIT",
+            font=Theme.font(11), text_color=Theme.TEXT_MUTED, anchor="w",
+        ).grid(row=2, column=0, sticky="w", pady=2)
