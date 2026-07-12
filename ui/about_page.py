@@ -61,7 +61,7 @@ class AboutPage(ctk.CTkFrame):
         # Path helper to load icon image files
         def _load_icon(light_name, dark_name, size=(16, 16)):
             try:
-                base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+                base_dir = os.path.dirname(os.path.dirname(__file__))
                 light_path = os.path.join(base_dir, "assets", light_name)
                 dark_path = os.path.join(base_dir, "assets", dark_name)
                 return ctk.CTkImage(
