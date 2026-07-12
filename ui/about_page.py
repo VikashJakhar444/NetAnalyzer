@@ -75,9 +75,9 @@ class AboutPage(ctk.CTkFrame):
         github_icon = _load_icon("github_dark.png", "github_light.png")
         linkedin_icon = _load_icon("linkedin_dark.png", "linkedin_light.png")
 
-        def _author_row(parent, name, github_url, linkedin_url, row):
+        def _author_row(parent, name, github_url, linkedin_url, col):
             f = ctk.CTkFrame(parent, fg_color="transparent")
-            f.grid(row=row, column=0, sticky="w", pady=3)
+            f.grid(row=0, column=col, sticky="w", padx=(0, 30), pady=3)
             ctk.CTkLabel(f, text=f"  {name}", font=Theme.font(12, "bold"),
                          text_color=Theme.TEXT_PRIMARY, anchor="w").pack(side="left")
             
