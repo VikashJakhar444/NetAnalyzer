@@ -186,9 +186,9 @@ class AboutPage(ctk.CTkFrame):
             btn.bind("<Enter>", lambda e: btn.configure(text_color=Theme.ACCENT_HOVER))
             btn.bind("<Leave>", lambda e: btn.configure(text_color=Theme.ACCENT))
 
-        _link_btn(link_frame, "GitHub   — ", "github.com/VikashJakhar444/NetAnalyzer", 0)
-        _link_btn(link_frame, "LinkedIn — ", "linkedin.com/in/vikash-jakhar-1a417b361", 1)
+        _link_btn(link_frame, "Repository — ", "github.com/VikashJakhar444/NetAnalyzer", 0)
+        _link_btn(link_frame, "Releases   — ", "github.com/VikashJakhar444/NetAnalyzer/releases", 1)
         ctk.CTkLabel(
-            link_frame, text="License  —  MIT",
+            link_frame, text="License    —  MIT",
             font=Theme.font(11), text_color=Theme.TEXT_MUTED, anchor="w",
         ).grid(row=2, column=0, sticky="w", pady=2)
