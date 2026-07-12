@@ -4,6 +4,8 @@ A defensive network security toolkit for mapping local networks, auditing open p
 
 Built with Python and CustomTkinter. No Administrator privileges required for subnet scanning and port auditing; packet capture requires Admin rights.
 
+![Dashboard Preview](assets/dashboard_preview.png)
+
 ---
 
 ## Features
