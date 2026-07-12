@@ -46,14 +46,44 @@ class AboutPage(ctk.CTkFrame):
         ).grid(row=1, column=0, sticky="w", padx=Theme.PAD_CARD, pady=2)
 
         ctk.CTkLabel(
-            panel, text=f"Built by {AUTHOR}",
-            font=Theme.font(12),
-            text_color=Theme.TEXT_SECONDARY,
+            panel, text="Developed by",
+            font=Theme.font(11),
+            text_color=Theme.TEXT_MUTED,
             anchor="w",
-        ).grid(row=2, column=0, sticky="w", padx=Theme.PAD_CARD, pady=2)
+        ).grid(row=2, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(6, 2))
+
+        authors_frame = ctk.CTkFrame(panel, fg_color="transparent")
+        authors_frame.grid(row=3, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 2))
+
+        def _author_row(parent, name, github_url, linkedin_url, row):
+            f = ctk.CTkFrame(parent, fg_color="transparent")
+            f.grid(row=row, column=0, sticky="w", pady=3)
+            ctk.CTkLabel(f, text=f"  {name}", font=Theme.font(12, "bold"),
+                         text_color=Theme.TEXT_PRIMARY, anchor="w").pack(side="left")
+            gh = ctk.CTkLabel(f, text="  GitHub", font=Theme.font(11),
+                              text_color=Theme.ACCENT, cursor="hand2", anchor="w")
+            gh.pack(side="left", padx=(8, 0))
+            gh.bind("<Button-1>", lambda e, u=github_url: __import__("webbrowser").open(u))
+            gh.bind("<Enter>", lambda e: gh.configure(text_color=Theme.ACCENT_HOVER))
+            gh.bind("<Leave>", lambda e: gh.configure(text_color=Theme.ACCENT))
+            if linkedin_url:
+                li = ctk.CTkLabel(f, text="  LinkedIn", font=Theme.font(11),
+                                  text_color=Theme.ACCENT, cursor="hand2", anchor="w")
+                li.pack(side="left", padx=(6, 0))
+                li.bind("<Button-1>", lambda e, u=linkedin_url: __import__("webbrowser").open(u))
+                li.bind("<Enter>", lambda e: li.configure(text_color=Theme.ACCENT_HOVER))
+                li.bind("<Leave>", lambda e: li.configure(text_color=Theme.ACCENT))
+
+        _author_row(authors_frame, "Vikash Jakhar",
+                    "https://github.com/VikashJakhar444",
+                    "https://www.linkedin.com/in/vikash-jakhar-1a417b361/", 0)
+        _author_row(authors_frame, "Anisha Verma",
+                    "https://github.com/anishaverma3858-hue",
+                    None, 1)
+
 
         ctk.CTkFrame(panel, height=1, fg_color=Theme.BORDER).grid(
-            row=3, column=0, sticky="ew", padx=Theme.PAD_CARD, pady=16,
+            row=4, column=0, sticky="ew", padx=Theme.PAD_CARD, pady=16,
         )
 
         description = (
@@ -67,14 +97,14 @@ class AboutPage(ctk.CTkFrame):
             font=Theme.font(12),
             text_color=Theme.TEXT_SECONDARY,
             justify="left", wraplength=560, anchor="w",
-        ).grid(row=4, column=0, sticky="w", padx=Theme.PAD_CARD, pady=4)
+        ).grid(row=5, column=0, sticky="w", padx=Theme.PAD_CARD, pady=4)
 
         ctk.CTkLabel(
             panel, text="Dependencies",
             font=Theme.font(12, "bold"),
             text_color=Theme.TEXT_MUTED,
             anchor="w",
-        ).grid(row=5, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(20, 6))
+        ).grid(row=6, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(20, 6))
 
         deps = (
             "CustomTkinter — Desktop interface framework\n"
@@ -88,10 +118,10 @@ class AboutPage(ctk.CTkFrame):
             font=Theme.font(11),
             text_color=Theme.TEXT_MUTED,
             justify="left", anchor="w",
-        ).grid(row=6, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 6))
+        ).grid(row=7, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 6))
 
         ctk.CTkFrame(panel, height=1, fg_color=Theme.BORDER).grid(
-            row=7, column=0, sticky="ew", padx=Theme.PAD_CARD, pady=12,
+            row=8, column=0, sticky="ew", padx=Theme.PAD_CARD, pady=12,
         )
 
         ctk.CTkLabel(
@@ -99,11 +129,11 @@ class AboutPage(ctk.CTkFrame):
             font=Theme.font(12, "bold"),
             text_color=Theme.TEXT_MUTED,
             anchor="w",
-        ).grid(row=8, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 6))
+        ).grid(row=9, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, 6))
 
         # Clickable links
         link_frame = ctk.CTkFrame(panel, fg_color="transparent")
-        link_frame.grid(row=9, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, Theme.PAD_CARD))
+        link_frame.grid(row=10, column=0, sticky="w", padx=Theme.PAD_CARD, pady=(0, Theme.PAD_CARD))
 
         def _link_btn(parent, label, url, row):
             row_frame = ctk.CTkFrame(parent, fg_color="transparent")
