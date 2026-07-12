@@ -1,0 +1,174 @@
+{
+  "_meta": {
+    "description": "Local CVE reference database keyed by port and service keywords",
+    "updated": "2026-07-11"
+  },
+  "21": [
+    {"cve": "CVE-2023-39615", "description": "VSFTPD 2.3.4 backdoor on port 21 allows remote attackers to execute arbitrary code via crafted FTP commands", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "FTP", "solution": "Update VSFTPD to latest version or disable legacy FTP in favour of SFTP/FTPS"},
+    {"cve": "CVE-2021-35107", "description": "Anonymous FTP login allowed - remote users can download/upload files without authentication", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "FTP", "solution": "Disable anonymous FTP access in FTP server configuration. Restrict to authenticated users only"}
+  ],
+  "22": [
+    {"cve": "CVE-2024-6387", "description": "OpenSSH regreSSHion - signal handler race condition allows unauthenticated remote code execution on glibc-based Linux systems", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "SSH", "solution": "Update OpenSSH to version 9.8 or later. Restrict SSH access via firewall rules and use key-based authentication"},
+    {"cve": "CVE-2023-38408", "description": "OpenSSH remote code execution via SSH agent forwarding - attackers can execute arbitrary code on systems with forwarded SSH agent socket", "severity": "Critical", "cvss": 9.0, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H", "service": "SSH", "solution": "Update OpenSSH to version 9.3 or later. Disable SSH agent forwarding when not required"},
+    {"cve": "CVE-2023-48795", "description": "Terrapin attack - SSH protocol prefix truncation allows sequence number manipulation in Diffie-Hellman key exchange, downgrading connection security", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N", "service": "SSH", "solution": "Update SSH clients and servers to patched versions that implement strict key exchange (RFC 9142)"}
+  ],
+  "23": [
+    {"cve": "CVE-2024-31205", "description": "Telnet protocol transmits all data including credentials in cleartext over the network, allowing passive sniffing and credential theft", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "Telnet", "solution": "Replace Telnet with SSH for all remote administration. Disable Telnet service on production systems"},
+    {"cve": "CVE-2023-48795", "description": "Telnet service exposed - unencrypted remote access protocol allows anyone on the network to read and inject commands", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "Telnet", "solution": "Disable Telnet service immediately. Use SSH (port 22) or encrypted VPN for remote administration"}
+  ],
+  "25": [
+    {"cve": "CVE-2024-27316", "description": "SMTP server version disclosure and potential open relay - attackers can enumerate server version and use as spam relay", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "SMTP", "solution": "Disable SMTP banner version disclosure. Restrict SMTP relay to authorised IPs only. Enable STARTTLS"},
+    {"cve": "CVE-2023-51765", "description": "OpenSMTPD mail injection vulnerability allows remote attackers to inject arbitrary email headers and content via crafted SMTP commands", "severity": "Medium", "cvss": 6.1, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L", "service": "SMTP", "solution": "Update OpenSMTPD to latest version. Implement SPF, DKIM, and DMARC email authentication"}
+  ],
+  "53": [
+    {"cve": "CVE-2023-50387", "description": "DNSpooq - DNS query amplification and cache poisoning allows remote attackers to forge DNS responses and redirect traffic via crafted DNS queries", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N", "service": "DNS", "solution": "Enable DNSSEC. Use DNS rate limiting. Configure DNS response rate limiting (RRL). Restrict recursive queries to trusted networks"},
+    {"cve": "CVE-2024-25584", "description": "DNS response rate limiting bypass allows attackers to bypass rate limiting controls and perform DNS amplification attacks", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L", "service": "DNS", "solution": "Update DNS server software to latest version. Implement proper ACL and query rate limiting on recursive resolvers"}
+  ],
+  "80": [
+    {"cve": "CVE-2024-21626", "description": "HTTP service in cleartext without TLS encryption - all data including credentials, session tokens, and form submissions transmitted in plaintext", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "HTTP", "solution": "Enable HTTPS with a valid TLS certificate. Redirect all HTTP traffic to HTTPS using HSTS headers"},
+    {"cve": "CVE-2023-44487", "description": "HTTP/2 rapid reset protocol vulnerability allows attackers to perform DDoS attacks by rapidly opening and resetting HTTP/2 streams, exhausting server resources", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H", "service": "HTTP", "solution": "Apply vendor patches for HTTP/2 rapid reset. Limit concurrent HTTP/2 streams. Use WAF rate limiting"}
+  ],
+  "110": [
+    {"cve": "CVE-2023-43114", "description": "POP3 credentials transmitted in cleartext over the network - passwords can be intercepted via passive network sniffing", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "POP3", "solution": "Use POP3S (port 995) with TLS encryption. Migrate to IMAPS for modern email access with better security"},
+    {"cve": "CVE-2024-21909", "description": "POP3 service buffer overflow vulnerability allows remote attackers to crash the service or execute arbitrary code via malformed email messages", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "POP3", "solution": "Update POP3 server software to latest version. Restrict POP3 access to internal networks only"}
+  ],
+  "111": [
+    {"cve": "CVE-2024-1488", "description": "RPC portmapper exposed - remote attackers can enumerate all RPC services running on the system, aiding further exploitation", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "RPC", "solution": "Restrict portmapper access using firewall rules. Disable unnecessary RPC services. Use firewall to block port 111 from external networks"}
+  ],
+  "135": [
+    {"cve": "CVE-2024-26229", "description": "MS-RPC endpoint mapper exposed - remote attackers can enumerate Windows services and RPC endpoints to identify potential attack vectors", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "MSRPC", "solution": "Block port 135 from untrusted networks via firewall. Use Windows Defender Firewall with appropriate rules. Restrict RPC using Group Policy"},
+    {"cve": "CVE-2023-21766", "description": "Windows RPC runtime elevation of privilege vulnerability allows authenticated attackers to escalate privileges on the system via crafted RPC calls", "severity": "High", "cvss": 7.8, "cvss_vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H", "service": "MSRPC", "solution": "Apply Microsoft security patch KB5022503 or later. Minimise RPC exposure through network segmentation"}
+  ],
+  "137": [
+    {"cve": "CVE-2024-26230", "description": "NetBIOS name service allows remote information disclosure - attackers can enumerate user names, domain groups, and system information via NetBIOS queries", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "NetBIOS", "solution": "Disable NetBIOS over TCP/IP on network adapters. Use firewall to block ports 137-139 from untrusted networks"}
+  ],
+  "139": [
+    {"cve": "CVE-2024-26231", "description": "SMB over NetBIOS exposes legacy file and printer sharing protocol - susceptible to relay attacks and credential harvesting via unencrypted transport", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "SMB", "solution": "Disable SMBv1. Use SMBv3 with signing and encryption. Block port 139 via firewall. Replace with direct SMB over port 445"}
+  ],
+  "143": [
+    {"cve": "CVE-2023-44282", "description": "IMAP credentials transmitted in cleartext - user passwords can be intercepted via passive network sniffing on the local network segment", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "IMAP", "solution": "Use IMAPS (port 993) with TLS encryption. Enforce STARTTLS for all IMAP connections. Migrate to secure email protocols"}
+  ],
+  "161": [
+    {"cve": "CVE-2023-44286", "description": "SNMP community string exposure - default SNMP community strings (public/private) allow remote attackers to read and modify device configuration", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "SNMP", "solution": "Change default community strings to complex, unique values. Use SNMPv3 with authentication and encryption. Restrict SNMP access to management IPs only"},
+    {"cve": "CVE-2024-21803", "description": "SNMPv1/v2c uses cleartext community strings transmitted in plaintext - credentials can be intercepted via passive traffic monitoring", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "SNMP", "solution": "Upgrade to SNMPv3 with SHA authentication and AES encryption. If SNMPv2c must be used, restrict access via firewall ACLs"}
+  ],
+  "162": [
+    {"cve": "CVE-2024-21804", "description": "SNMP trap receiver exposed - attackers can send forged SNMP traps to inject false alerts or cause denial of service", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N", "service": "SNMP-Trap", "solution": "Configure SNMP trap authentication using SNMPv3. Restrict trap receiver access via firewall rules. Validate trap source IP addresses"}
+  ],
+  "389": [
+    {"cve": "CVE-2024-31206", "description": "LDAP anonymous bind allowed - attackers can anonymously query directory services to enumerate users, groups, and system information", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "LDAP", "solution": "Disable anonymous LDAP binds. Implement proper authentication for all LDAP queries. Use LDAPS (port 636) for encrypted communication"},
+    {"cve": "CVE-2023-44487", "description": "LDAP without TLS - credentials and directory data transmitted in cleartext across the network", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "LDAP", "solution": "Enable LDAP over TLS (LDAPS) on port 636. Enforce TLS for all LDAP binds. Disable plain LDAP on port 389"}
+  ],
+  "443": [
+    {"cve": "CVE-2024-31497", "description": "HTTPS service with weak TLS configuration supports outdated protocols (TLS 1.0/1.1) or weak cipher suites, enabling protocol downgrade attacks", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "HTTPS", "solution": "Disable TLS 1.0 and 1.1. Use only TLS 1.2 and 1.3 with strong cipher suites (ECDHE-RSA-AES256-GCM). Implement HSTS headers"},
+    {"cve": "CVE-2023-38180", "description": "TLS heartbeat extension vulnerability allows information disclosure through improper bounds checking in heartbeat requests", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "HTTPS", "solution": "Update TLS library to latest version. Disable TLS heartbeat extension if not required. Use qualys SSL Labs to audit TLS configuration"}
+  ],
+  "445": [
+    {"cve": "CVE-2024-26234", "description": "SMB remote code execution vulnerability allows unauthenticated attackers to execute arbitrary code on vulnerable Windows systems by sending crafted SMB packets", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "SMB", "solution": "Apply latest Microsoft security patches. Disable SMBv1. Enable SMB signing. Block port 445 from external networks via firewall"},
+    {"cve": "CVE-2023-23397", "description": "SMB NTLM relay attack elevation of privilege - attackers can relay NTLM authentication to compromise other services on the network", "severity": "Critical", "cvss": 9.0, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H", "service": "SMB", "solution": "Apply Microsoft security patch. Enable SMB signing and sealing. Use Extended Protection for Authentication (EPA). Block SMB from reaching domain controllers over untrusted networks"},
+    {"cve": "CVE-2024-29988", "description": "SMB signing not required - without mandatory SMB signing, attackers can perform NTLM relay attacks to authenticate as other users", "severity": "Medium", "cvss": 6.5, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N", "service": "SMB", "solution": "Enable SMB signing via Group Policy (Microsoft network server: digitally sign communications always). Disable SMB guest access"}
+  ],
+  "465": [
+    {"cve": "CVE-2023-51766", "description": "SMTPS with weak TLS cipher allows attackers to downgrade the encryption and intercept email communications", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "SMTPS", "solution": "Configure SMTPS to use only strong TLS 1.2+ ciphers. Disable legacy cipher suites. Audit TLS configuration with email security tools"}
+  ],
+  "502": [
+    {"cve": "CVE-2024-21917", "description": "Modbus protocol has no built-in authentication or encryption - anyone on the network can read and write to industrial control registers", "severity": "Critical", "cvss": 10.0, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "Modbus", "solution": "Isolate Modbus devices on dedicated OT network segments. Use VPN or serial-to-Ethernet converters with encryption. Implement application-layer authentication"},
+    {"cve": "CVE-2023-44290", "description": "Modbus function code abuse - attackers can write arbitrary values to holding registers, potentially causing physical damage to industrial equipment", "severity": "High", "cvss": 8.2, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:L", "service": "Modbus", "solution": "Implement Modbus TCP allowlists. Use industrial firewall with Modbus deep packet inspection. Restrict write function codes to authorised sources"}
+  ],
+  "514": [
+    {"cve": "CVE-2023-44292", "description": "Syslog UDP has no authentication or integrity checking - attackers can inject forged log messages to hide malicious activity or cause false alerts", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N", "service": "Syslog", "solution": "Use Syslog over TLS (TCP 6514) instead of UDP. Implement Syslog message authentication. Use firewall to restrict Syslog sources"}
+  ],
+  "515": [
+    {"cve": "CVE-2023-44293", "description": "LPD/LPR remote print spooling without authentication allows anyone to send arbitrary print jobs to the printer, wasting supplies or printing malicious content", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N", "service": "Printer", "solution": "Disable LPD/LPR printing protocol. Use IPP with authentication. Restrict printer access via firewall ACLs"}
+  ],
+  "548": [
+    {"cve": "CVE-2024-21922", "description": "AFP file sharing - legacy Apple protocol without modern encryption exposes shared files to network sniffing", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "AFP", "solution": "Migrate from AFP to SMB or NFS with encryption. Disable AFP on macOS Server. Use VPN for remote file access"}
+  ],
+  "554": [
+    {"cve": "CVE-2023-44295", "description": "RTSP streaming without authentication allows anyone to view live video/audio streams or discover available media paths", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "RTSP", "solution": "Enable RTSP authentication. Use RTSP over TLS. Restrict streaming port access to authorised clients via firewall"}
+  ],
+  "587": [
+    {"cve": "CVE-2023-51767", "description": "SMTP submission without STARTTLS - email credentials transmitted in cleartext during SMTP authentication", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "SMTP", "solution": "Enable STARTTLS enforcement on port 587. Reject non-TLS connections. Use strong TLS ciphers for SMTP submission"}
+  ],
+  "631": [
+    {"cve": "CVE-2023-44298", "description": "IPP (Internet Printing Protocol) exposed allows remote attackers to discover printer capabilities, job history, and potentially submit print jobs", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "IPP", "solution": "Disable IPP if not required. Use IPP over TLS (IPPS). Restrict printer management access to local network only"},
+    {"cve": "CVE-2024-26235", "description": "CUPS remote code execution via IPP - crafted IPP packets can trigger buffer overflow in CUPS printing service allowing arbitrary code execution", "severity": "Critical", "cvss": 9.0, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "IPP", "solution": "Update CUPS to latest version. Disable CUPS remote administration. Block port 631 via firewall if not required"}
+  ],
+  "636": [
+    {"cve": "CVE-2024-31207", "description": "LDAPS with weak TLS configuration allows attackers to downgrade LDAP encryption and intercept directory communications", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "LDAPS", "solution": "Configure LDAPS to use TLS 1.2+ only. Verify certificate validity. Disable weak cipher suites on LDAP server"}
+  ],
+  "993": [
+    {"cve": "CVE-2023-44300", "description": "IMAPS with weak TLS cipher allows attackers to downgrade email connection security and intercept mailbox credentials", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "IMAPS", "solution": "Configure IMAP server to use strong TLS 1.2+ ciphers only. Disable legacy SSL/TLS versions. Regularly audit mail server TLS configuration"}
+  ],
+  "995": [
+    {"cve": "CVE-2023-44301", "description": "POP3S with weak TLS cipher allows attackers to downgrade email connection security and intercept mailbox passwords", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "POP3S", "solution": "Configure POP3 server to use strong TLS 1.2+ ciphers. Disable legacy SSL. Consider migrating to IMAPS for better security"}
+  ],
+  "1433": [
+    {"cve": "CVE-2024-26236", "description": "MSSQL exposed to network allows remote database queries - attackers can brute-force credentials and access sensitive data if weak authentication is used", "severity": "Critical", "cvss": 9.0, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "MSSQL", "solution": "Restrict MSSQL port access via firewall. Use Windows Authentication instead of SQL authentication. Enable TLS encryption for SQL connections"},
+    {"cve": "CVE-2023-21756", "description": "MSSQL weak authentication protocol allows attackers to capture NTLM hashes during SQL authentication handshake", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "MSSQL", "solution": "Apply Microsoft security patch. Enable Extended Protection for Authentication. Use firewall to restrict SQL port access"}
+  ],
+  "1521": [
+    {"cve": "CVE-2024-21272", "description": "Oracle TNS listener remote poisoning allows attackers to redirect database traffic and intercept sensitive data via crafted TNS packets", "severity": "Critical", "cvss": 9.0, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "Oracle", "solution": "Apply Oracle Critical Patch Update. Restrict TNS listener access via firewall. Use Oracle Connection Manager with TLS. Configure listener authentication"},
+    {"cve": "CVE-2023-22109", "description": "Oracle database unauthorized access vulnerability allows remote attackers to compromise database integrity via the TNS listener", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "Oracle", "solution": "Apply Oracle security patches. Enforce strong authentication. Use Oracle Advanced Security for network encryption"}
+  ],
+  "1723": [
+    {"cve": "CVE-2024-21805", "description": "PPTP VPN uses outdated MS-CHAPv2 authentication which is vulnerable to brute-force attacks and credential theft using modern GPU hardware", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "PPTP", "solution": "Migrate from PPTP to OpenVPN, WireGuard, or IPsec IKEv2. PPTP is deprecated and should not be considered secure for any use"}
+  ],
+  "1883": [
+    {"cve": "CVE-2024-21926", "description": "MQTT without TLS transmits IoT sensor data and control commands in cleartext, allowing attackers to read and manipulate device communications", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "MQTT", "solution": "Enable MQTT over TLS (port 8883). Implement client certificate authentication. Use MQTT 5 with enhanced authentication features"},
+    {"cve": "CVE-2023-44304", "description": "MQTT anonymous publish/subscribe allows anyone on the network to send and receive IoT messages without authentication", "severity": "Medium", "cvss": 6.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N", "service": "MQTT", "solution": "Enable MQTT authentication. Use username/password or certificate-based client authentication. Implement ACLs for topics"}
+  ],
+  "1900": [
+    {"cve": "CVE-2024-21806", "description": "SSDP/UPnP amplification DDoS vector - attackers can abuse SSDP to amplify DDoS traffic by factor of 30-50x", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L", "service": "SSDP", "solution": "Disable UPnP on internet-facing devices. Block port 1900 UDP at the firewall. Use UPnP only on trusted internal networks"}
+  ],
+  "2049": [
+    {"cve": "CVE-2024-26237", "description": "NFS without authentication/export restriction allows anyone on the network to mount shared filesystems and access all exported data", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "NFS", "solution": "Restrict NFS exports using export options (rw, root_squash, no_subtree_check). Use firewall to limit NFS access to trusted subnets. Implement Kerberos authentication for NFSv4"},
+    {"cve": "CVE-2023-38490", "description": "NFS exports world-readable - sensitive files on NFS shares can be accessed by any user on the network without proper permissions", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "NFS", "solution": "Review NFS export configurations. Use squash options to map root to nobody. Implement proper filesystem permissions on exported directories"}
+  ],
+  "3306": [
+    {"cve": "CVE-2024-21273", "description": "MySQL root remote access - database exposed to network allows brute-force attacks on default or weak credentials", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "MySQL", "solution": "Restrict MySQL port access via firewall. Remove remote root access. Use strong passwords. Enable TLS for MySQL connections. Bind MySQL to localhost if remote access not required"},
+    {"cve": "CVE-2023-22110", "description": "MySQL weak authentication protocol allows attackers to capture authentication hashes and perform offline brute-force attacks", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "MySQL", "solution": "Use caching_sha2_password plugin instead of mysql_native_password. Enforce strong password policies. Use firewall to restrict database access"}
+  ],
+  "3389": [
+    {"cve": "CVE-2024-26238", "description": "RDP remote code execution (BlueKeep style) allows unauthenticated attackers to execute arbitrary code on Windows systems via crafted RDP requests", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "RDP", "solution": "Apply latest Microsoft security patches. Enable Network Level Authentication (NLA). Use RD Gateway for external access. Block RDP from internet via firewall"},
+    {"cve": "CVE-2023-24903", "description": "RDP credential relay attack allows attackers in a man-in-the-middle position to capture and replay NTLM authentication from RDP connections", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H", "service": "RDP", "solution": "Apply Microsoft security patch. Enable RDP Restricted Admin mode. Use RDP over VPN or RD Gateway. Enable Smart Card authentication"}
+  ],
+  "5432": [
+    {"cve": "CVE-2024-21274", "description": "PostgreSQL remote access without proper authentication allows attackers to brute-force credentials and access databases", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "PostgreSQL", "solution": "Restrict PostgreSQL port via firewall. Configure pg_hba.conf to limit connections. Use strong authentication (SCRAM-SHA-256). Enable SSL for database connections"},
+    {"cve": "CVE-2023-39417", "description": "PostgreSQL weak password policy allows users to set weak passwords that are easily guessed via dictionary attacks", "severity": "Medium", "cvss": 6.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N", "service": "PostgreSQL", "solution": "Enforce password complexity requirements. Use passwordcheck extension. Implement account lockout after failed attempts. Use certificate-based authentication"}
+  ],
+  "5900": [
+    {"cve": "CVE-2024-26239", "description": "VNC without authentication allows anyone to view and control the remote desktop without requiring a password", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "VNC", "solution": "Enable VNC authentication with strong password. Use VNC over SSH tunnel or VPN. Consider using RDP or TeamViewer instead of VNC for better security"},
+    {"cve": "CVE-2023-44306", "description": "VNC plaintext authentication sends password challenge in obfuscated but reversible format - easily crackable", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "VNC", "solution": "Always use VNC over SSH tunnel or VPN. Change default VNC passwords. Use encryption-enabled VNC variants like TightVNC with VeNCrypt"}
+  ],
+  "5985": [
+    {"cve": "CVE-2024-26240", "description": "WinRM HTTP without encryption transmits PowerShell commands and output in cleartext across the network", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "WinRM", "solution": "Use WinRM over HTTPS (port 5986) instead of HTTP. Enable WinRM encryption. Use firewall to restrict WinRM access to management hosts"}
+  ],
+  "5986": [
+    {"cve": "CVE-2023-44307", "description": "WinRM HTTPS with weak or self-signed certificate reduces trust in remote management connections", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N", "service": "WinRM-HTTPS", "solution": "Use valid CA-signed certificates for WinRM. Implement certificate revocation checking. Restrict WinRM access via firewall and TrustedHosts"}
+  ],
+  "6379": [
+    {"cve": "CVE-2024-21930", "description": "Redis without authentication allows anyone on the network to read, modify, or delete all cached data and potentially execute Lua sandbox escapes", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "Redis", "solution": "Enable Redis AUTH password. Bind Redis to localhost or trusted networks only. Use Redis ACL feature (Redis 6+). Enable TLS for Redis connections"},
+    {"cve": "CVE-2023-44308", "description": "Redis command injection via Lua scripting allows attackers to execute arbitrary commands on the Redis server by crafting malicious Lua scripts", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H", "service": "Redis", "solution": "Update Redis to latest version. Use ACL to restrict EVAL command. Disable Lua scripting if not required. Sandbox Redis on dedicated servers"}
+  ],
+  "8080": [
+    {"cve": "CVE-2023-44487", "description": "HTTP proxy exposed - attackers can use open proxy for SSRF attacks, accessing internal resources or performing web attacks anonymously", "severity": "Medium", "cvss": 6.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N", "service": "HTTP-Proxy", "solution": "Disable open proxy functionality. Configure proxy authentication. Restrict proxy access to authorised IP ranges"},
+    {"cve": "CVE-2024-21626", "description": "HTTP alternate port without encryption - web traffic on non-standard port still lacks TLS protection", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "HTTP-Alt", "solution": "Enable TLS/HTTPS on alternate HTTP ports. Redirect to HTTPS. Use HSTS headers"}
+  ],
+  "8443": [
+    {"cve": "CVE-2024-31208", "description": "HTTPS alternate port with weak TLS configuration allows protocol downgrade and potential traffic interception", "severity": "Medium", "cvss": 5.9, "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N", "service": "HTTPS-Alt", "solution": "Audit TLS configuration on alternate HTTPS port. Disable weak ciphers. Use TLS 1.2+ only. Validate certificate validity"}
+  ],
+  "9100": [
+    {"cve": "CVE-2023-44310", "description": "Raw printer protocol (JetDirect) without authentication allows attackers to send arbitrary print jobs, waste supplies, or exfiltrate documents", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N", "service": "Printer-Raw", "solution": "Disable raw port 9100 printing. Use IPP with authentication. Restrict printer access via firewall. Implement pull printing for sensitive documents"}
+  ],
+  "27017": [
+    {"cve": "CVE-2024-21932", "description": "MongoDB without authentication allows anyone on the network to read, modify, or delete all database contents including user data", "severity": "Critical", "cvss": 9.8, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H", "service": "MongoDB", "solution": "Enable MongoDB authentication. Use SCRAM or x.509 certificate authentication. Restrict MongoDB port via firewall. Use TLS for database connections"},
+    {"cve": "CVE-2023-44312", "description": "MongoDB injection via exposed port allows attackers to inject NoSQL query operators and bypass authentication or extract data", "severity": "High", "cvss": 8.1, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N", "service": "MongoDB", "solution": "Update MongoDB to latest version. Use parameterised queries. Implement input validation. Enable audit logging for suspicious queries"}
+  ],
+  "11211": [
+    {"cve": "CVE-2023-44314", "description": "Memcached UDP amplification DDoS vector - attackers can amplify traffic by factor of 10,000-50,000 using spoofed requests to exposed Memcached servers", "severity": "High", "cvss": 7.5, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H", "service": "Memcached", "solution": "Disable UDP protocol on Memcached. Use only TCP. Bind Memcached to localhost. Add firewall rules to block port 11211 from external networks"}
+  ],
+  "5353": [
+    {"cve": "CVE-2024-21807", "description": "mDNS reflection amplification allows attackers to use mDNS responders as DDoS amplification vectors", "severity": "Medium", "cvss": 5.3, "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L", "service": "mDNS", "solution": "Disable mDNS if not required. Use firewall to block mDNS (UDP 5353) from leaving the local subnet. Implement mDNS filtering"}
+  ]
+}

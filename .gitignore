@@ -1,0 +1,36 @@
+# Database files
+*.db
+database/
+
+# Reports and exports
+reports/
+exports/
+backups/
+scratch/
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+*.spec
+__pycache__/
+*.pyc
+
+# Config with local paths
+config/settings.json
+config/scan_profiles.json
+
+# OUI cache
+data/oui_cache.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
