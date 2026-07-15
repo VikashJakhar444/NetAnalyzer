@@ -110,7 +110,7 @@ class AboutPage(ctk.CTkFrame):
                     "https://www.linkedin.com/in/vikash-jakhar-1a417b361/", 0)
         _author_row(authors_frame, "Anisha Verma",
                     "https://github.com/anishaverma3858-hue",
-                    None, 1)
+                    "https://www.linkedin.com/in/anisha-verma-963793364/", 1)
 
 
         ctk.CTkFrame(panel, height=1, fg_color=Theme.BORDER).grid(
