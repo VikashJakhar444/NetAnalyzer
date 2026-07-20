@@ -1,0 +1,16 @@
+Steps to Run the Network Analyzer:
+
+1. Unzip the folder and open it.
+2. Open Terminal / Command Prompt as Administrator in this folder.
+3. Install dependencies by running:
+   pip install -r requirements.txt
+4. Start the application by running:
+   python app.py
+
+--------------------------------------------------
+Project Info:
+- OS Compatibility: Windows ONLY 
+- Language: Python 3.10+
+- UI Framework: CustomTkinter
+- Core Libraries: Scapy (Networking), Matplotlib (Graphs), ReportLab (PDFs), SQLite (Database)
+- Requirement: Npcap (npcap.com) is needed for packet capturing.
